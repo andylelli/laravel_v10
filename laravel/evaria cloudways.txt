@@ -1,9 +1,0 @@
-1) Create new server
-2) In Application enable SSH access, CORS headers and HTTPS redirection
-3) In Server Management set Max input time to 120, Max connections limit 1000
-4) Add SSH key to Github
-5) Import SQL
-6) In Visual Code, search and replace DB credentials
-7) Deploy
-8) Add remote Git address to Deploy via Github
-9) Create admin and user directories and pull over
