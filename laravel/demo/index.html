@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<title>Evaria</title>
+			<!-- Style -->
+			<link rel="stylesheet" href="css.css"/>
+			<!-- JS -->
+
+		</head>
+		<body style="margin: 0;width: 100%;height: 100vh; position: fixed;">
+			<!--The Main Thing-->
+			<div id="wrapper">
+				<div class="phone view_3" id="phone_2" style="position: fixed; left: 50%; transform: translateX(-50%);">
+					<iframe src="" id="frame_2"></iframe>
+				</div>
+				<div style="position:absolute; top: 20px; left: 20px;">
+				<img id="apple" onclick="appleClick()" src="apple.png" />
+				<img id="android" onclick="androidClick()" src="android.png" />
+			</div>
+			</div>
+			<!--Controls etc.-->
+			<script>
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			let myIframe = document.getElementById("frame_2");
+            let url_string = "https://phplaravel-835220-2876452.cloudwaysapps.com/userV7/index.html";
+            const email = urlParams.get('email');
+			const token = urlParams.get('token');
+
+            let adsURL = url_string+"?email="+email+"&token="+token;
+            myIframe.src = adsURL;
+
+
+            let user_url_string = "https://phplaravel-835220-2876452.cloudwaysapps.com/userV7/index.html";
+
+			function appleClick () {
+				myIframe.src = user_url_string +  "?email=" + email + "&token=" + token + "&theme=ios";
+			}
+			function androidClick () {
+				myIframe.src = user_url_string +  "?email=" + email + "&token=" + token + "&theme=md";
+			}
+			</script>
+			<script src="js.js"></script>
+		</body>
+	</html>
