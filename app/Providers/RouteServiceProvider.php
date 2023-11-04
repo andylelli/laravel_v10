@@ -25,7 +25,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+            /* Andy Lelli 04-NOV-2024 - Throttle changed from 60 to 9999 */
+            return Limit::perMinute(9999)->by($request->user()?->id ?: $request->ip());
         });
 
         $this->routes(function () {

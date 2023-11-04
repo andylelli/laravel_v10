@@ -74,7 +74,7 @@ class _User{
                     $app = app();
                     $response = $app->make('stdClass');
                     $response->status = 'fail';
-                    $response->message = 'This event does not exist';
+                    $response->message = 'This user does not exist.';
 
                     return $response;
                 }
@@ -84,7 +84,7 @@ class _User{
 				$app = app();
 				$response = $app->make('stdClass');
 				$response->status = 'fail';
-				$response->message = 'This event does not exist information';
+				$response->message = 'This user does not exist.';
 
 				return $response;
 			}
@@ -133,7 +133,7 @@ class _User{
                 $app = app();
                 $response = $app->make('stdClass');
                 $response->status = 'fail';
-                $response->message = 'This event does not exist information';
+                $response->message = 'This event does not exist.';
 
                 return $response;
             }
@@ -175,7 +175,7 @@ class _User{
                         $app = app();
                         $response = $app->make('stdClass');
                         $response->status = 'fail';
-                        $response->message = 'This event does not exist';
+                        $response->message = 'This event does not exist.';
         
                         return $response;
                     }
@@ -192,7 +192,7 @@ class _User{
                 $response->user_role = $guest[0]->guest_role;
                 $response->user_defaulteventid = $guest[0]->guest_eventid;
                 $response->eventslist = $events;
-                $response->message = 'You are now logged in';
+                $response->message = 'You are now logged in.';
 
                 return $response;
             }
@@ -201,7 +201,7 @@ class _User{
                 $app = app();
                 $response = $app->make('stdClass');
                 $response->status = 'fail';
-                $response->message = 'This event does not exist';
+                $response->message = 'This event does not exist.';
 
                 return $response;
             }

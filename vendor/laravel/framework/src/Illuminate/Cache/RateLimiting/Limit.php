@@ -40,7 +40,8 @@ class Limit
      * @param  int  $decayMinutes
      * @return void
      */
-    public function __construct($key = '', int $maxAttempts = 60, int $decayMinutes = 1)
+    /* Andy Lelli 04-NOV-2024 - Throttle changed from 60 to 9999 */
+    public function __construct($key = '', int $maxAttempts = 9999, int $decayMinutes = 1)
     {
         $this->key = $key;
         $this->maxAttempts = $maxAttempts;
