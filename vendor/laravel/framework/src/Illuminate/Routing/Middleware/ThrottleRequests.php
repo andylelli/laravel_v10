@@ -55,7 +55,9 @@ class ThrottleRequests
      *
      * @named-arguments-supported
      */
-    public static function with($maxAttempts = 60, $decayMinutes = 1, $prefix = '')
+
+     /* Andy Lelli 04-NOV-2023: Throttl - $maxAttempts changed from 60 to 9999 */
+    public static function with($maxAttempts = 9999, $decayMinutes = 1, $prefix = '')
     {
         return static::class.':'.implode(',', func_get_args());
     }
@@ -72,7 +74,9 @@ class ThrottleRequests
      *
      * @throws \Illuminate\Http\Exceptions\ThrottleRequestsException
      */
-    public function handle($request, Closure $next, $maxAttempts = 60, $decayMinutes = 1, $prefix = '')
+
+    /* Andy Lelli 04-NOV-2023: Throttl - $maxAttempts changed from 60 to 9999 */
+    public function handle($request, Closure $next, $maxAttempts = 9999, $decayMinutes = 1, $prefix = '')
     {
         if (is_string($maxAttempts)
             && func_num_args() === 3
@@ -146,7 +150,8 @@ class ThrottleRequests
                 throw $this->buildException($request, $limit->key, $limit->maxAttempts, $limit->responseCallback);
             }
 
-            $this->limiter->hit($limit->key, $limit->decayMinutes * 60);
+            /* Andy Lelli 04-NOV-2023: Throttl - $maxAttempts changed from 60 to 9999 */
+            $this->limiter->hit($limit->key, $limit->decayMinutes * 9999);
         }
 
         $response = $next($request);
