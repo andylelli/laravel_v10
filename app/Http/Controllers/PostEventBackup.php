@@ -33,8 +33,6 @@ class PostEventBackup extends Controller
             $response = $this->restoreFromFile($filename, $eventid);
         }
 
-        $this->writeToLog(print_r($response, true)); 
-
         if($response['status'] == "success") {
             return response()->json($response, 200);
         }
@@ -50,8 +48,6 @@ class PostEventBackup extends Controller
         foreach ($tables as $table) { 
 
             if($table != "static_data" && $table != "user") {
-
-                $this->writeToLog(print_r($table, true)); 
 
                 try {
 
@@ -70,8 +66,6 @@ class PostEventBackup extends Controller
                 } 
                 catch (Exception $e) {
                     $str = "Error deleting rows from table '$table': " . $e->getMessage() . "\n";
-                    $this->writeToLog(print_r($str, true)); 
-
                     $response = array(
                         'status' => 'fail',
                         'message' => $str
@@ -117,7 +111,7 @@ class PostEventBackup extends Controller
 
             } catch (Exception $e) {
                 $str = 'Error executing statement: ' . $statement . PHP_EOL;
-                $this->writeToLog(print_r($str, true));                 
+       
                 $str = 'Error message: ' . $e->getMessage() . PHP_EOL;
 
                 $response = array(

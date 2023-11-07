@@ -103,7 +103,7 @@ class _Directory extends Project{
         $insertArray['directoryentry_position'] = $position;
         $insertArray['directoryentry_uxtime'] = $uxtime;
 
-        $this->writeToLog(print_r($insertArray, true));
+        //$this->writeToLog(print_r($insertArray, true));
 
 		//Insert new subtable entry and return insert id
         try {
@@ -132,7 +132,6 @@ class _Directory extends Project{
         }
         //Return error to the client
         catch(Exception $ex) {
-            $this->writeToLog("ERROR"); 
             $this->writeToLog(print_r($ex, true));
 
             $errorResponse = $this->errorException($ex);

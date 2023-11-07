@@ -16,8 +16,6 @@ class PostUpdateController extends Controller
 	{
 		$updates = $request->all();
 
-		$this->writeToLog(print_r($updates, true));
-
 		$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 		if($hostname == 'LAPTOP-6PCF8EI1') {
 			$json = json_decode(file_get_contents(base_path('app\\params.json')));

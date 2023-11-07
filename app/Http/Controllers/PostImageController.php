@@ -54,16 +54,11 @@ class PostImageController extends Controller
     public function postRemoveImage(Request $request)
     {
         $data = $request->all();
-        $this->writeToLog(print_r($data, true));
-
 		$id = $request->id;
 		$table = $request->table;
 
         $image = null;
         $uxtime = $this->unixTime();
-
-        $this->writeToLog($id);
-        $this->writeToLog($table);
 
 		$results = DB::table($table)
 			->where($table . '_id', $id)

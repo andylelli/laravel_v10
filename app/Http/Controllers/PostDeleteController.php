@@ -20,8 +20,6 @@ class PostDeleteController extends Controller
 
 		foreach ($items as $item) {
 
-            $this->writeToLog(print_r($item, true));
-
 			$table_id = $table . '_id';
 			$table_eventid = $table . '_eventid';
 

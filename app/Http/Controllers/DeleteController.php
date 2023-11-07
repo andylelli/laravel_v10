@@ -12,15 +12,11 @@ class DeleteController extends Controller
 
     public function deleteItem($table, $id)
     {
-        $this->writeToLog('DELETE');
-
 		$results = DB::table($table)
 		->where($table . '_id', '=', $id)
 		->delete();
 
 		if($results == true) {
-
-            $this->writeToLog('SUCCESS');
 
 			$response[] = array(
 				'status' => 'success',
