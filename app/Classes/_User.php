@@ -156,7 +156,7 @@ class _User{
                     
                     $event = DB::table('event')
                     ->where('event_id' ,'=', $eventid)
-                    ->where('event_expirydate' ,'>', date('Ymd'))
+                    ->where('event_expirydate' ,'>', strVal(date('Ymd')))
                     ->get();
 
                     if(count($event) > 0) {
