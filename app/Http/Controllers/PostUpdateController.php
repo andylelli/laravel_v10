@@ -97,6 +97,13 @@ class PostUpdateController extends Controller
 				$update[$keyToChange] = $this->encodeXML($update[$keyToChange]);
 			}	
 
+			$keyToChange = $table . '_expiredmessage';;
+			if (in_array($keyToChange, $keys)) {
+				$update[$keyToChange] = $this->encodeXML($update[$keyToChange]);
+			}		
+			
+			$this->writeToLog(print_r($update, true));
+
             try {
 				$tableid = $table . '_id';
     			$result = DB::table($table)
