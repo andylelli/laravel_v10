@@ -14,7 +14,7 @@ class GetManifestController extends Controller
     {
         $eventName = "day-of-the-dead";
         try {
-            $results = DB::table('events')
+            $results = DB::table('event')
             ->where('event_name' ,'=', $eventName)
             ->get();
 
