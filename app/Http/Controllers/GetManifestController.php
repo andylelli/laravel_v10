@@ -49,7 +49,7 @@ class GetManifestController extends Controller
                 'sizes' => '512x512',
                 'type' => 'image/png'                                                                                                                                                        
             );            
-            $iconsArray = array($icon-128, $icon-144, $icon-152, $icon-192, $icon-256, $icon-512);
+            $iconsArray = array($icon128, $icon144, $icon152, $icon192, $icon256, $icon512);
             $iconsJson = json_encode($iconsArray);  
 
             // CREATE SCREENSHOTS
