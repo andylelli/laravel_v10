@@ -50,7 +50,7 @@ class GetManifestController extends Controller
                 'type' => 'image/png'                                                                                                                                                        
             );            
             $iconsArray = array($icon128, $icon144, $icon152, $icon192, $icon256, $icon512);
-            $iconsJson = json_encode($iconsArray);  
+            $iconsJson = json_encode($iconsArray[0], JSON_UNESCAPED_SLASHES); 
 
             // CREATE SCREENSHOTS
             $screenshotNarrow[] = array(
@@ -66,7 +66,8 @@ class GetManifestController extends Controller
                 'form_factor' => 'wide'                                                                                                                                                       
             );            
             $screenshotsArray = array($screenshotWide, $screenshotNarrow);
-            $screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES);              
+            $screenshotsJson = json_encode($screenshotsArray[0], JSON_UNESCAPED_SLASHES); 
+            
 
             // CREATE MAIN RESPONSE
             $response[] = array(
