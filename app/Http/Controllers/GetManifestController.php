@@ -71,15 +71,15 @@ class GetManifestController extends Controller
 
             $body[] = array(
                 'background-color' => '#2b2b2b',
-                'description' => 'evaria',
+                'description' => 'Day of the Dead',
                 'display' => 'standalone',
                 'icons' => $iconsJson,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
-                'name' => 'name',
+                'name' => 'Day of the Dead',
                 'orientation' => 'portrait',
                 'screenshot' => $screenshotsJson,
-                'short_name' => 'short_name',
+                'short_name' => 'Day of the Dead',
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
