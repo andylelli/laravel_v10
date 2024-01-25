@@ -95,6 +95,6 @@ class GetManifestController extends Controller
             return response()->json($response, 400);
         }
 
-        return response()->json($response[0], 200);
+        return response()->json(json_encode($response[0], JSON_UNESCAPED_SLASHES) , 200);
     }
 }
