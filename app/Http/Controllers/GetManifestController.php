@@ -50,7 +50,7 @@ class GetManifestController extends Controller
                 'type' => 'image/png'                                                                                                                                                        
             );            
             $iconsArray = array($icon128, $icon144, $icon152, $icon192, $icon256, $icon512);
-            $iconsJson = json_encode($iconsArray, JSON_UNESCAPED_SLASHES)
+            $iconsJson = json_encode($iconsArray, JSON_UNESCAPED_SLASHES);   
 
             // CREATE SCREENSHOTS
             $screenshotNarrow[] = array(
@@ -66,24 +66,23 @@ class GetManifestController extends Controller
                 'form_factor' => 'wide'                                                                                                                                                       
             );            
             $screenshotsArray = array($screenshotWide, $screenshotNarrow);
-            $screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES)
+            $screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES);              
 
             // CREATE MAIN RESPONSE
-            $body[] = array(
+            $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => 'Day of the Dead',
                 'display' => 'standalone',
-                'icons' => $iconsArray,
+                'icons' => $iconsJson,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
                 'name' => 'Day of the Dead',
                 'orientation' => 'portrait',
-                'screenshot' => $screenshotsArray,
+                'screenshot' => $screenshotsJson,
                 'short_name' => 'Day of the Dead',
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
-            $response = json_encode($body[0], JSON_UNESCAPED_SLASHES); 
 
         }catch(Exception $ex) {
             $error = $ex->getMessage();
@@ -96,6 +95,6 @@ class GetManifestController extends Controller
             return response()->json($response, 400);
         }
 
-        return response()->json($response, 200);
+        return response()->json($response[0], 200);
     }
 }
