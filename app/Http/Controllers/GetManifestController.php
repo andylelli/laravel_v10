@@ -10,7 +10,7 @@ class GetManifestController extends Controller
 {
 	use General;
 
-    public function getEvents($eventName)
+    public function getManifest()
     {
         $eventName = "day-of-the-dead";
         try {
