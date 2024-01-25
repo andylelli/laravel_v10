@@ -66,24 +66,24 @@ class GetManifestController extends Controller
                 'form_factor' => 'wide'                                                                                                                                                       
             );            
             $screenshotsArray = array($screenshotWide, $screenshotNarrow);
-            $screenshotsJson = json_encode($screenshotsArray);              
+            $screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES);              
 
             // CREATE MAIN RESPONSE
             $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => 'Day of the Dead',
                 'display' => 'standalone',
-                'icons' => $iconsJson,
+                'icons' => $iconsArray,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
                 'name' => 'Day of the Dead',
                 'orientation' => 'portrait',
-                'screenshot' => $screenshotsJson,
+                'screenshot' => $screenshotsArray,
                 'short_name' => 'Day of the Dead',
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
-            
+
         }catch(Exception $ex) {
             $error = $ex->getMessage();
 
