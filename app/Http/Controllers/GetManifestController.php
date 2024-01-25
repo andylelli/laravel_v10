@@ -68,7 +68,7 @@ class GetManifestController extends Controller
             $screenshotsArray = array($screenshotWide, $screenshotNarrow);
             $screenshotsJson = json_encode($screenshotsArray);              
 
-
+            // CREATE MAIN RESPONSE
             $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => 'Day of the Dead',
@@ -83,7 +83,7 @@ class GetManifestController extends Controller
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
-
+            
         }catch(Exception $ex) {
             $error = $ex->getMessage();
 
