@@ -18,6 +18,7 @@ use App\Http\Controllers\GetScanController;
 use App\Http\Controllers\GetUserScanController;
 use App\Http\Controllers\GetEventBackup;
 use App\Http\Controllers\PostEventBackup;
+use App\Http\Controllers\GetManifestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ use App\Http\Controllers\PostEventBackup;
 
         //Get updates
         Route::get('/get/events',  [GetUpdateController::class, 'getEvents']);
+
+        //Get updates
+        Route::get('/get/manifest',  [GetManifestController::class, 'getManifest']);        
 
     //Route::middleware(['throttle:9999,1', ValidateToken::class])->group(function(){
     Route::middleware([ValidateToken::class])->group(function(){
