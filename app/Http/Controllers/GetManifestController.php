@@ -66,8 +66,6 @@ class GetManifestController extends Controller
             );            
             $screenshotsArray = array($screenshotWide, $screenshotNarrow);
 
-            
-
             // CREATE MAIN RESPONSE
             $body[] = array(
                 'background-color' => '#2b2b2b',
