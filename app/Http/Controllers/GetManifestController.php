@@ -69,7 +69,7 @@ class GetManifestController extends Controller
             $screenshotsJson = json_encode($screenshotsArray);              
 
 
-            $body[] = array(
+            $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => 'Day of the Dead',
                 'display' => 'standalone',
