@@ -81,7 +81,7 @@ class GetManifestController extends Controller
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
-            $response = json_encode($body, JSON_UNESCAPED_SLASHES); 
+            $response = json_encode($body[0], JSON_UNESCAPED_SLASHES); 
 
         }catch(Exception $ex) {
             $error = $ex->getMessage();
