@@ -56,13 +56,15 @@ class GetManifestController extends Controller
                 'src' => '/user/static/icons/screenshot.png',
                 'type' => 'image/png',
                 'sizes' => '420x943',
-                'form_factor' => 'narrow'                                                                                                                                                       
+                'form_factor' => 'narrow',
+                'label' =>  'App'                                                                                                                                                       
             );  
             $screenshotWide[] = array(
                 'src' => '/user/static/icons/screenshot.png',
                 'type' => 'image/png',
                 'sizes' => '420x943',
-                'form_factor' => 'wide'                                                                                                                                                       
+                'form_factor' => 'wide',
+                'label' =>  'App'                                                                                                                                                     
             );            
             $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);       
 
@@ -76,7 +78,7 @@ class GetManifestController extends Controller
                 'lang' => 'en-US',
                 'name' => 'Day of the Dead',
                 'orientation' => 'portrait',
-                'screenshot' => $screenshotsArray,
+                'screenshots' => $screenshotsArray,
                 'short_name' => 'Day of the Dead',
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
