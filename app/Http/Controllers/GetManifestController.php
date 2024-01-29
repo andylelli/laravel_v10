@@ -49,9 +49,7 @@ class GetManifestController extends Controller
                 'sizes' => '512x512',
                 'type' => 'image/png'                                                                                                                                                        
             );            
-            $iconsArray = array($icon128, $icon144, $icon152, $icon192, $icon256, $icon512);
-            //$iconsJson = json_encode($iconsArray, JSON_UNESCAPED_SLASHES);
-            $iconsJson = json_encode($iconsArray);   
+            $iconsArray = array($icon128[0], $icon144[0], $icon152[0], $icon192[0], $icon256[0], $icon512[0]);  
 
             // CREATE SCREENSHOTS
             $screenshotNarrow[] = array(
@@ -66,16 +64,14 @@ class GetManifestController extends Controller
                 'sizes' => '420x943',
                 'form_factor' => 'wide'                                                                                                                                                       
             );            
-            $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);
-            //$screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES);
-            $screenshotsJson = json_encode($screenshotsArray);         
+            $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);       
 
             // CREATE MAIN RESPONSE
             $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => 'Day of the Dead',
                 'display' => 'standalone',
-                'icons' => $iconsJson,
+                'icons' => $iconsArray,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
                 'name' => 'Day of the Dead',
