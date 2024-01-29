@@ -66,7 +66,7 @@ class GetManifestController extends Controller
                 'sizes' => '420x943',
                 'form_factor' => 'wide'                                                                                                                                                       
             );            
-            $screenshotsArray = array(json_encode($screenshotWide[0]), json_encode($screenshotNarrow[0]));
+            $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);
             //$screenshotsJson = json_encode($screenshotsArray, JSON_UNESCAPED_SLASHES);
             $screenshotsJson = json_encode($screenshotsArray);         
 
