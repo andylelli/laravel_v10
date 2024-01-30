@@ -80,7 +80,7 @@ class GetManifestController extends Controller
                 'orientation' => 'portrait',
                 'screenshots' => $screenshotsArray,
                 'short_name' => 'Day of the Dead',
-                'start_url' => '/user/event/day-of-the-dead/index.html',  
+                'start_url' => '/user/index.html?id=day-of-the-dead',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
 
