@@ -43,7 +43,7 @@ use App\Http\Controllers\GetManifestController;
         Route::get('/get/liveevents',  [GetUpdateController::class, 'getLiveEvents']);
 
         //Get updates
-        Route::get('/get/manifest',  [GetManifestController::class, 'getManifest']);        
+        Route::get('/get/manifest/{eventid}',  [GetManifestController::class, 'getManifest']);        
 
     //Route::middleware(['throttle:9999,1', ValidateToken::class])->group(function(){
     Route::middleware([ValidateToken::class])->group(function(){

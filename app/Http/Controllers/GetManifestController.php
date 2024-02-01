@@ -10,42 +10,49 @@ class GetManifestController extends Controller
 {
 	use General;
 
-    public function getManifest()
+    public function getManifest($eventid)
     {
-        $eventName = "day-of-the-dead";
         try {
             $results = DB::table('event')
-            ->where('event_name' ,'=', $eventName)
+            ->where('event_id' ,'=', $eventid
             ->get();
+
+            $name = $event[0]->event_name;
+
+            // Convert to lowercase
+            $lowercaseName = strtolower($name);
+
+            // Replace spaces with hyphens
+            $convertedString = str_replace(' ', '-', $lowercaseString);            
 
             // CREATE ICONS
             $icon128[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/128x128.png',
+                'src' => '/user/static/icons/' . $convertedString . '/128x128.png',
                 'sizes' => '128x128',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon144[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/144x144.png',
+                'src' => '/user/static/icons/' . $convertedString . '/144x144.png',
                 'sizes' => '144x144',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon152[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/152x152.png',
+                'src' => '/user/static/icons/' . $convertedString . '/152x152.png',
                 'sizes' => '152x152',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon192[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/192x192.png',
+                'src' => '/user/static/icons/' . $convertedString . '/192x192.png',
                 'sizes' => '192x192',
                 'type' => 'image/png'                                                                                                                                                        
             );      
             $icon256[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/256x256.png',
+                'src' => '/user/static/icons/' . $convertedString . '/256x256.png',
                 'sizes' => '256x256',
                 'type' => 'image/png'                                                                                                                                                        
             );  
             $icon512[] = array(
-                'src' => '/user/static/icons/day-of-the-dead/512x512.png',
+                'src' => '/user/static/icons/' . $convertedString . '/512x512.png',
                 'sizes' => '512x512',
                 'type' => 'image/png'                                                                                                                                                        
             );            
@@ -71,15 +78,15 @@ class GetManifestController extends Controller
             // CREATE MAIN RESPONSE
             $response[] = array(
                 'background-color' => '#2b2b2b',
-                'description' => 'Day of the Dead',
+                'description' => $name,
                 'display' => 'standalone',
                 'icons' => $iconsArray,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
-                'name' => 'Day of the Dead',
+                'name' => $name,
                 'orientation' => 'portrait',
                 'screenshots' => $screenshotsArray,
-                'short_name' => 'Day of the Dead',
+                'short_name' => $name,
                 'start_url' => '/user/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
