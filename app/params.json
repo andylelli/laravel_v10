@@ -31,6 +31,7 @@
                 "event_darktheme",
                 "event_hideqrtype",
                 "event_expiredmessage",
+                "event_live",                
                 "event_userid",
                 "event_uxtime"
             ],
@@ -47,7 +48,8 @@
                 "event_autosync": 1,
                 "event_darktheme": 1,
                 "event_hideqrtype": 0,
-                "event_expiredmessage" : ""
+                "event_expiredmessage" : "",
+                "event_live" : 0                
             },
             "dbUpdate": [
                 "event_id",
@@ -59,7 +61,8 @@
                 "event_autosync",
                 "event_darktheme",
                 "event_hideqrtype",
-                "event_expiredmessage"
+                "event_expiredmessage",
+                "event_live"                
 
             ]
         },
