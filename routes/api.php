@@ -40,6 +40,7 @@ use App\Http\Controllers\GetManifestController;
 
         //Get updates
         Route::get('/get/events',  [GetUpdateController::class, 'getEvents']);
+        Route::get('/get/liveevents',  [GetUpdateController::class, 'getLiveEvents']);
 
         //Get updates
         Route::get('/get/manifest',  [GetManifestController::class, 'getManifest']);        

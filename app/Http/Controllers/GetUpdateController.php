@@ -12,6 +12,41 @@ class GetUpdateController extends Controller
 {
 	use General;
 
+    public function getLiveEvents()
+    {
+        try {
+            //$this->writeToLog(print_r(phpinfo(), true));
+            $event_results = DB::table('event')
+            ->where('event_live' ,'=', 1)
+            ->get();
+
+            $len = count($event_results);
+            $i=0;
+
+            for ($i = 0; $i < $len; $i++) {
+                unset($event_results[$i]->event_image);
+                unset($event_results[$i]->event_userid);
+            }
+
+            $response[] = array(
+                'status' => 'success',
+                'data' => $event_results
+            );
+
+		}catch(Exception $ex) {
+			$error = $ex->getMessage();
+
+			$response[] = array(
+				'status' => 'fail',
+				'message' => 'ERROR: ' . $error
+			);
+
+			return response()->json($response, 400);
+		}
+
+		return response()->json($response, 200);
+	}    
+
     public function getEvents()
     {
         try {
