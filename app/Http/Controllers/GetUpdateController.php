@@ -24,8 +24,20 @@ class GetUpdateController extends Controller
             $i=0;
 
             for ($i = 0; $i < $len; $i++) {
+
+                $eventid = $event_results[$i]->event_id;
+
+                $guest_results = DB::table('guest')
+                ->where('guest_role' ,'=', 1)
+                ->where('guest_eventid' ,'=', $eventid)
+                ->get();
+
+                $event_results[$i]->{'event_email'} = $guest_results[0]->guest_email;
+                $event_results[$i]->{'event_token'} = $guest_results[0]->guest_token;
+
                 unset($event_results[$i]->event_image);
                 unset($event_results[$i]->event_userid);
+
             }
 
             $response[] = array(
@@ -45,7 +57,7 @@ class GetUpdateController extends Controller
 		}
 
 		return response()->json($response, 200);
-	}    
+	}  
 
     public function getEvents()
     {
