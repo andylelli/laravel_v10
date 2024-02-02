@@ -75,7 +75,7 @@ class GetManifestController extends Controller
             );            
             $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);   
             
-            $eventName = "/user/" . $convertedString. "/index.html"
+            $startURL = "/user/" . $convertedString. "/index.html";
 
             // CREATE MAIN RESPONSE
             $response[] = array(
@@ -89,7 +89,7 @@ class GetManifestController extends Controller
                 'orientation' => 'portrait',
                 'screenshots' => $screenshotsArray,
                 'short_name' => $name,
-                'start_url' => '/user/' . $convertedString. '/index.html',  
+                'start_url' => $startURL,  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
 
