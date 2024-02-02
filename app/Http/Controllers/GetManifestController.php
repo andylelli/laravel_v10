@@ -73,7 +73,9 @@ class GetManifestController extends Controller
                 'form_factor' => 'wide',
                 'label' =>  'App'                                                                                                                                                     
             );            
-            $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);       
+            $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);   
+            
+            $eventName = "/user/" . $convertedString. "/index.html"
 
             // CREATE MAIN RESPONSE
             $response[] = array(
@@ -87,7 +89,7 @@ class GetManifestController extends Controller
                 'orientation' => 'portrait',
                 'screenshots' => $screenshotsArray,
                 'short_name' => $name,
-                'start_url' => '/user/index.html',  
+                'start_url' => '/user/' . $convertedString. '/index.html',  
                 'theme_color' => '#2b2b2b',                                                                                                                                                         
             );
 
