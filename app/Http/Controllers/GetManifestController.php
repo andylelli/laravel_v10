@@ -17,7 +17,7 @@ class GetManifestController extends Controller
             ->where('event_id' ,'=', $eventid)
             ->get();
 
-            $name = $event[0]->event_name;
+            $name = $results[0]->event_name;
 
             // Convert to lowercase
             $lowercaseName = strtolower($name);
