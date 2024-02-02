@@ -20,7 +20,7 @@ class GetManifestController extends Controller
             $name = $results[0]->event_name;
 
             // Convert to lowercase
-            $lowercaseName = strtolower($name);
+            $lowercaseString = strtolower($name);
 
             // Replace spaces with hyphens
             $convertedString = str_replace(' ', '-', $lowercaseString);            
