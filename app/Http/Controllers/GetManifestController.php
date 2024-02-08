@@ -27,32 +27,32 @@ class GetManifestController extends Controller
 
             // CREATE ICONS
             $icon128[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/128x128.png',
+                'src' => '/user/icons/' . $convertedString . '/128x128.png',
                 'sizes' => '128x128',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon144[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/144x144.png',
+                'src' => '/user/icons/' . $convertedString . '/144x144.png',
                 'sizes' => '144x144',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon152[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/152x152.png',
+                'src' => '/user/icons/' . $convertedString . '/152x152.png',
                 'sizes' => '152x152',
                 'type' => 'image/png'                                                                                                                                                        
             );
             $icon192[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/192x192.png',
+                'src' => '/user/icons/' . $convertedString . '/192x192.png',
                 'sizes' => '192x192',
                 'type' => 'image/png'                                                                                                                                                        
             );      
             $icon256[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/256x256.png',
+                'src' => '/user/icons/' . $convertedString . '/256x256.png',
                 'sizes' => '256x256',
                 'type' => 'image/png'                                                                                                                                                        
             );  
             $icon512[] = array(
-                'src' => '/user/static/icons/' . $convertedString . '/512x512.png',
+                'src' => '/user/icons/' . $convertedString . '/512x512.png',
                 'sizes' => '512x512',
                 'type' => 'image/png'                                                                                                                                                        
             );            
@@ -60,14 +60,14 @@ class GetManifestController extends Controller
 
             // CREATE SCREENSHOTS
             $screenshotNarrow[] = array(
-                'src' => '/user/static/icons/screenshot.png',
+                'src' => '/user/icons/screenshot.png',
                 'type' => 'image/png',
                 'sizes' => '420x943',
                 'form_factor' => 'narrow',
                 'label' =>  'App'                                                                                                                                                       
             );  
             $screenshotWide[] = array(
-                'src' => '/user/static/icons/screenshot.png',
+                'src' => '/user/icons/screenshot.png',
                 'type' => 'image/png',
                 'sizes' => '420x943',
                 'form_factor' => 'wide',
