@@ -76,7 +76,7 @@ class GetManifestController extends Controller
             $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);   
             
             //$startURL = "/user/event/" . $convertedString;
-            $startURL = "/user/index.html?name=day-of-the-dead&id=153";
+            $startURL = "/user/index.html?name=" . $convertedString . "&id=" . $eventid;
 
             // CREATE MAIN RESPONSE
             $response[] = array(
