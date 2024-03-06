@@ -82,7 +82,7 @@ class GetManifestController extends Controller
             $response[] = array(
                 'background-color' => '#2b2b2b',
                 'description' => $name,
-                'display' => 'standalone',
+                'display' => 'fullscreen',
                 'icons' => $iconsArray,
                 'id' => 'evaria-123456',
                 'lang' => 'en-US',
