@@ -17,7 +17,7 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['http://192.168.1.114:8000', 'http://192.168.1.114:8001', 'http://192.168.1.114:8002', 'http://192.168.1.116:8001'],
+    'allowed_origins' => ['http://192.168.1.114:8000', 'http://192.168.1.114:8001', 'http://192.168.1.114:8002', 'http://192.168.1.116:8001', 'http://localhost:8001']
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
