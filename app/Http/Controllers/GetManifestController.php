@@ -24,6 +24,7 @@ class GetManifestController extends Controller
 
             // Replace spaces with hyphens
             $convertedString = str_replace(' ', '-', $lowercaseString);   
+            $eventName = $convertedString;
             
             $folderPath = "user/icons/" . $convertedString;
 
@@ -83,7 +84,7 @@ class GetManifestController extends Controller
             $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);   
             
             //$startURL = "/user/event/" . $convertedString;
-            $startURL = "/user/index.html?name=" . $convertedString . "&id=" . $eventid;
+            $startURL = "/user/index.html?name=" . $eventName . "&id=" . $eventid;
 
             // CREATE MAIN RESPONSE
             $response[] = array(
