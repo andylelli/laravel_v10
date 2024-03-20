@@ -23,7 +23,14 @@ class GetManifestController extends Controller
             $lowercaseString = strtolower($name);
 
             // Replace spaces with hyphens
-            $convertedString = str_replace(' ', '-', $lowercaseString);            
+            $convertedString = str_replace(' ', '-', $lowercaseString);   
+            
+            $folderPath = "user/icons/" . $convertedString;
+
+            // Method 1: Using file_exists()
+            if (!file_exists($folderPath)) {
+                $convertedString = "evaria";
+            }
 
             // CREATE ICONS
             $icon128[] = array(
