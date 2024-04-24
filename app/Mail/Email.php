@@ -20,6 +20,7 @@ class Email extends Mailable
 
     public function build()
     {
-        return $this->subject('Welcome to Our Application');
+        return $this->subject('Welcome to Our Application')
+                    ->view('emails');
     }
 }
