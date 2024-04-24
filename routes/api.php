@@ -40,7 +40,7 @@ use App\Http\Controllers\GetEmailController;
 	    Route::post('/post/register', [PostRegisterController::class, 'postRegister']);
 
         //Email
-	    Route::get('/get/email', [GetEmailController::class, 'getEmail']);
+	    Route::get('/get/email', [GetEmailController::class, 'sendEmail']);
 
         //Get updates
         Route::get('/get/events',  [GetUpdateController::class, 'getEvents']);
