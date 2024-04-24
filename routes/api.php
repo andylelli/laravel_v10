@@ -38,6 +38,9 @@ use App\Http\Controllers\GetManifestController;
         //Register
 	    Route::post('/post/register', [PostRegisterController::class, 'postRegister']);
 
+        //Email
+	    Route::get('/get/email', [GetEmailController::class, 'getEmail']);
+
         //Get updates
         Route::get('/get/events',  [GetUpdateController::class, 'getEvents']);
         Route::get('/get/liveevents',  [GetUpdateController::class, 'getLiveEvents']);
