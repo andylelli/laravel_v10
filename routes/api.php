@@ -19,6 +19,7 @@ use App\Http\Controllers\GetUserScanController;
 use App\Http\Controllers\GetEventBackup;
 use App\Http\Controllers\PostEventBackup;
 use App\Http\Controllers\GetManifestController;
+use App\Http\Controllers\GetEmailController;
 
 /*
 |--------------------------------------------------------------------------
