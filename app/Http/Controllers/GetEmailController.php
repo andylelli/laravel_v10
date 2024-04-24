@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Mail;
 
 use DB;
 use Illuminate\Http\Request;
