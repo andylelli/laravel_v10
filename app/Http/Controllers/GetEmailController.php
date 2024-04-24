@@ -6,7 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Mail\Email;
 
-class GetEmail extends Controller
+class GetEmailController extends Controller
 {
 
     public function getEmail()
