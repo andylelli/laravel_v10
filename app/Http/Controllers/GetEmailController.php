@@ -10,9 +10,10 @@ class GetEmailController extends Controller
 {
     public function sendEmail(Request $request)
     {
-        $userEmail = $request->input('email');
+        $userName = $request->input('Andy');
+        $userEmail = $request->input('andylelli@yahoo.com');
 
-        Mail::to($userEmail)->send(new Email());
+        Mail::to($userEmail)->send(new Email($userName, $userEmail));
 
         return response()->json(['message' => 'Welcome email sent!']);
     }
