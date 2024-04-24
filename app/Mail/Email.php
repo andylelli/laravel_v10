@@ -12,16 +12,14 @@ class Email extends Mailable
     public $userName;
     public $userEmail;
 
-    public function __construct($userName, $userEmail)
+    public function __construct($userName)
     {
         $this->userName = $userName;
-        $this->userEmail = $userEmail;
     }
 
     public function build()
     {
         return $this->subject('Welcome to Our Application')
-                    ->to($this->userEmail)
                     ->view('emails');
     }
 }
