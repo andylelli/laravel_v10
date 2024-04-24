@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Mail extends Mailable
+class Email extends Mailable
 {
     use Queueable, SerializesModels;
     public $mailData;
