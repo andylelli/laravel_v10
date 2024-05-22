@@ -45,7 +45,7 @@ class _User{
 					if($user[0]->user_wronglogins <= $this->permitedAttemps){
 
 						$event = DB::table('event')
-						->select('event_id', 'event_name', 'event_image')
+						->select('event_id', 'event_name')
 						->where('event_userid' ,'=', $user[0]->user_id)
 						->get();
 
@@ -104,7 +104,7 @@ class _User{
                 $event_list = array();
 
                 $event = DB::table('event')
-                ->select('event_id', 'event_name', 'event_image')
+                ->select('event_id', 'event_name')
                 ->where('event_id' ,'=', $user[0]->guest_eventid)
                 ->get();
 
