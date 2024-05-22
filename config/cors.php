@@ -15,9 +15,9 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['http://192.168.1.114:8000', 'http://192.168.1.114:8001', 'http://192.168.1.114:8002', 'http://192.168.1.116:8001', 'http://localhost:8001', 'http://172.20.10.2:8001', 'http://109.159.180.174:8001'],
+    'allowed_origins' => ['*'],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
