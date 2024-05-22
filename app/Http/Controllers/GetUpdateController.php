@@ -35,7 +35,7 @@ class GetUpdateController extends Controller
                 $event_results[$i]->{'event_email'} = $guest_results[0]->guest_email;
                 $event_results[$i]->{'event_token'} = $guest_results[0]->guest_token;
 
-                //unset($event_results[$i]->event_image);
+                unset($event_results[$i]->event_image);
                 unset($event_results[$i]->event_userid);
 
             }
@@ -81,7 +81,7 @@ class GetUpdateController extends Controller
                 $event_results[$i]->{'event_email'} = $guest_results[0]->guest_email;
                 $event_results[$i]->{'event_token'} = $guest_results[0]->guest_token;
 
-                //unset($event_results[$i]->event_image);
+                unset($event_results[$i]->event_image);
                 unset($event_results[$i]->event_userid);
 
             }
