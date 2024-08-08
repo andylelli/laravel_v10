@@ -311,6 +311,28 @@
             ]
         },
         {
+            "table": "myschedule",
+            "classname": "Myschedule",
+            "db": [
+                "myschedule_id",
+                "myschedule_imageid",
+                "myschedule_eventid",
+                "myschedule_projectid",
+                "myschedule_uxtime"
+            ],
+            "dbInsert": [
+                "name",
+                "eventid"
+            ],
+            "dbInsertInitial": {
+                "schedule_imageid": 0
+            },
+            "dbUpdate": [
+                "myschedule_id",
+                "myschedule_imageid"
+            ]
+        },
+        {
             "table": "pollitem",
             "classname": "Poll",
             "db": [

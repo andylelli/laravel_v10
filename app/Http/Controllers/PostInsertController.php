@@ -15,6 +15,7 @@ use App\Classes\Shop;
 use App\Classes\Hunt;
 use App\Classes\News;
 use App\Classes\Schedule;
+use App\Classes\Myschedule;
 use App\Classes\QR_Code;
 use App\Classes\Traits\General;
 
