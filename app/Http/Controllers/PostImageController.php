@@ -26,8 +26,8 @@ class PostImageController extends Controller
 		$uxtime = $this->unixTime();
 		$image = $this->generalBase64($path);
 
-		if($table == 'event') {
-			$this->writeToLog(print_r($_SERVER['DOCUMENT_ROOT']));
+		if($table == 'event') 
+			$this->writeToLog(print_r($_SERVER['DOCUMENT_ROOT'], true));
 			$this->createPwaIcons($image, '/applications/gthewnsykf/public_html/user/icons/test');
 		}
 
