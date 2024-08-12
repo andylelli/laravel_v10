@@ -122,10 +122,10 @@ class PostImageController extends Controller
 
 			//apple-touch-icon
 			// Create a new true color image with the desired size
-			$icon = imagecreatetruecolor(180, 180);
+			$icon = imagecreatetruecolor(256, 256);
 
 			// Resize the cropped image and copy it to the new image resource
-			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
+			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, 256, 256, $cropSize, $cropSize);
 	
 			// Save the icon to the output directory
 			$outputFile = $outputDir . "/apple-touch-icon.png";
@@ -140,7 +140,7 @@ class PostImageController extends Controller
 			$icon = imagecreatetruecolor(128, 128);
 
 			// Resize the cropped image and copy it to the new image resource
-			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
+			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, 128, 128, $cropSize, $cropSize);
 	
 			// Save the icon to the output directory
 			$outputFile = $outputDir . "/favicon.png";
