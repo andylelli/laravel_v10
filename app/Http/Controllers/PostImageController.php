@@ -60,7 +60,7 @@ class PostImageController extends Controller
 		{
 			// List of sizes for PWA icons
 			$sizes = [
-				72, 96, 128, 144, 152, 192, 384, 512
+				128, 144, 152, 196, 256, 512
 			];
 		
 			// Check if the output directory exists, if not, create it
@@ -110,6 +110,36 @@ class PostImageController extends Controller
 				// Free memory associated with the new image resource
 				imagedestroy($icon);
 			}
+
+			//apple-touch-icon
+			// Create a new true color image with the desired size
+			$icon = imagecreatetruecolor(256, 256);
+
+			// Resize the cropped image and copy it to the new image resource
+			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
+	
+			// Save the icon to the output directory
+			$outputFile = $outputDir . "apple-touch-icon.png";
+			imagepng($icon, $outputFile);
+	
+			// Free memory associated with the new image resource
+			imagedestroy($icon);
+
+
+			//favicon
+			// Create a new true color image with the desired size
+			$icon = imagecreatetruecolor(128, 128);
+
+			// Resize the cropped image and copy it to the new image resource
+			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
+	
+			// Save the icon to the output directory
+			$outputFile = $outputDir . "favicon.png";
+			imagepng($icon, $outputFile);
+	
+			// Free memory associated with the new image resource
+			imagedestroy($icon);
+
 		
 			// Free memory associated with the cropped image and the source image
 			imagedestroy($croppedImage);
