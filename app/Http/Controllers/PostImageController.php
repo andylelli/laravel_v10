@@ -128,7 +128,7 @@ class PostImageController extends Controller
 			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
 	
 			// Save the icon to the output directory
-			$outputFile = $outputDir . "apple-touch-icon.png";
+			$outputFile = $outputDir . "/apple-touch-icon.png";
 			imagepng($icon, $outputFile);
 	
 			// Free memory associated with the new image resource
@@ -143,7 +143,7 @@ class PostImageController extends Controller
 			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
 	
 			// Save the icon to the output directory
-			$outputFile = $outputDir . "favicon.png";
+			$outputFile = $outputDir . "/favicon.png";
 			imagepng($icon, $outputFile);
 	
 			// Free memory associated with the new image resource
