@@ -26,9 +26,18 @@ class PostImageController extends Controller
 		$uxtime = $this->unixTime();
 		$image = $this->generalBase64($path);
 
+
+		$results = DB::table('event')
+		->where('event_id' ,'=', $id)
+		->get();
+
+		$name = $results[0]->event_name;
+		$lowercaseString = strtolower($name);
+		$formattedString = str_replace(' ', '-', $lowercaseString);
+
 		if($table == 'event') {
 			$base64Image = preg_replace('/^data:image\/[^;]+;base64,/', '', $image);
-			$this->createPwaIcons($base64Image, '/home/1159228.cloudwaysapps.com/gthewnsykf/public_html/user/icons/test');
+			$this->createPwaIcons($base64Image, '/home/1159228.cloudwaysapps.com/gthewnsykf/public_html/user/icons/' . $formattedString);
 		}
 
 		unlink($destinationPath . $picName);
