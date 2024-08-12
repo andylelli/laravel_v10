@@ -27,7 +27,7 @@ class PostImageController extends Controller
 		$image = $this->generalBase64($path);
 
 		if($table == 'event') {
-			$this->writeToLog(print_r($_SERVER['DOCUMENT_ROOT'], true));
+			$this->writeToLog(print_r(dirname($_SERVER['SCRIPT_FILENAME']), true));
 			$this->createPwaIcons($image, '/applications/gthewnsykf/public_html/user/icons/test');
 		}
 
