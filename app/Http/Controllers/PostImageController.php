@@ -28,7 +28,7 @@ class PostImageController extends Controller
 
 		if($table == 'event') {
 			$base64Image = preg_replace('/^data:image\/[^;]+;base64,/', '', $image);
-			$this->createPwaIcons($$base64Image, '/home/1159228.cloudwaysapps.com/gthewnsykf/public_html/user/icons/test');
+			$this->createPwaIcons($base64Image, '/home/1159228.cloudwaysapps.com/gthewnsykf/public_html/user/icons/test');
 		}
 
 		unlink($destinationPath . $picName);
