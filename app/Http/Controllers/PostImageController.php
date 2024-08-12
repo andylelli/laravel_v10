@@ -122,7 +122,7 @@ class PostImageController extends Controller
 
 			//apple-touch-icon
 			// Create a new true color image with the desired size
-			$icon = imagecreatetruecolor(256, 256);
+			$icon = imagecreatetruecolor(180, 180);
 
 			// Resize the cropped image and copy it to the new image resource
 			imagecopyresampled($icon, $croppedImage, 0, 0, 0, 0, $size, $size, $cropSize, $cropSize);
