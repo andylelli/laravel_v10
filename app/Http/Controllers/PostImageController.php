@@ -28,7 +28,7 @@ class PostImageController extends Controller
 
 		if($table == 'event') {
 			$this->writeToLog(print_r(dirname($_SERVER['SCRIPT_FILENAME']), true));
-			$this->createPwaIcons($image, '/applications/gthewnsykf/public_html/user/icons/test');
+			$this->createPwaIcons($image, '/home/1159228.cloudwaysapps.com/gthewnsykf/public_html/user/icons/test');
 		}
 
 		unlink($destinationPath . $picName);
