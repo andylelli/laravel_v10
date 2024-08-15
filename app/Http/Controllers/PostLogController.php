@@ -18,7 +18,7 @@ class PostLogController extends Controller
 		$eventid = $request->eventid;
         $uxtime = $this->unixTime();
 
-		$response = $log->new_log_insert($name, $eventid, $uxtime);
+		$response = $log->new_log_insert($name, $eventid);
 
         return response()->json($response, 201);
 	}

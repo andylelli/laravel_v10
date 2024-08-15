@@ -14,11 +14,12 @@ class Log{
     * @param string $userid User ID 	*
     * @return $eventid                  *
     **/
-    public function new_log_insert($name, $eventid, $uxtime){
+    public function new_log_insert($name, $eventid){
 
 		//Set other variables
         $value = 0;
         $table= "log";
+        $uxtime = $this->unixTime();
 
         //Add mandatory values
         $dbInsertArray[$table . '_name'] = $name;
