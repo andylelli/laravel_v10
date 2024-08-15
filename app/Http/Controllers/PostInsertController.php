@@ -17,6 +17,7 @@ use App\Classes\News;
 use App\Classes\Schedule;
 use App\Classes\Myschedule;
 use App\Classes\QR_Code;
+use App\Classes\Log;
 use App\Classes\Traits\General;
 
 class PostInsertController extends Controller
@@ -69,9 +70,35 @@ class PostInsertController extends Controller
 		$type = $namespace . $classname;
 		$class = new $type();
 		$fxname = 'new_' . $table . '_insert';
+
 		$response = $class->$fxname($arr);
 
-        return response()->json($response, 201);
+		if($response->status == 'success') {
+
+			if($table == "event") {
+
+				$name = $request->$name;
+				$value = $request->$value;
+				$eventid = $request->$response['event_id'];
+
+				$log = new Log();
+				$result = $log->new_log_insert($name, $value, $eventid);
+
+				if($result['status'] == 'success') {
+					return response()->json($response, 201);
+				}
+				else {
+					return response()->json($response, 400);
+				}
+			}
+			else {
+				return response()->json($response, 201);
+			}
+		}
+		else {
+			return response()->json($response, 400);
+		}
+
 	}
 
 	public function postInsertBulk(Request $request)

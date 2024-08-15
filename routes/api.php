@@ -110,8 +110,10 @@ use App\Http\Controllers\GetEmailController;
         Route::post('/post/update/qrcode',  [PostUpdateController::class, 'postUpdate']);
         Route::post('/post/update/lookup',  [PostUpdateController::class, 'postUpdateLookup']);
         Route::post('/post/update/image',  [PostImageController::class, 'postImage']);
+        Route::post('/post/update/log',  [PostLogController::class, 'postUpdateLog']);
 
         Route::post('/post/remove/image',  [PostImageController::class, 'postRemoveImage']);
+        
 
         //Get Event Backup
         Route::get('/get/event/insert/backup/{eventid}/{file}',  [GetEventBackup::class, 'getInsertEventBackup']);
@@ -129,5 +131,7 @@ use App\Http\Controllers\GetEmailController;
 
         Route::get('/get/pollsubmit/{id}/{pollid}/{eventid}/{token}/{guestid}', [GetUpdateController::class, 'getPollSubmit']);
         Route::get('/get/pollscore/{pollid}/{eventid}/{token}/{guestid}', [GetUpdateController::class, 'getPollScore']);
+
+
 
     });
