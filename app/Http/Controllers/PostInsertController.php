@@ -75,7 +75,7 @@ class PostInsertController extends Controller
 
 		$response = $class->$fxname($arr);
 
-		if($response->status == 'success') {
+		if($response['status'] == 'success') {
 
 			$this->writeToLog("BBBB");
 
