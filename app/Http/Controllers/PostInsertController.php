@@ -83,7 +83,7 @@ class PostInsertController extends Controller
 
 				$this->writeToLog("CCCC");
 				$name = "downloads";
-				$eventid = $request->$response['event_id'];
+				$eventid = $response['event_id'];
 
 				$log = new Log();
 				$result = $log->new_log_insert($name, $eventid);
