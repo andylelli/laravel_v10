@@ -82,13 +82,11 @@ class PostInsertController extends Controller
 			if($table == "event") {
 
 				$this->writeToLog("CCCC");
-
-				$name = $request->$name;
-				$value = $request->$value;
+				$name = "downloads";
 				$eventid = $request->$response['event_id'];
 
 				$log = new Log();
-				$result = $log->new_log_insert($name, $value, $eventid);
+				$result = $log->new_log_insert($name, $eventid);
 
 				if($result['status'] == 'success') {
 					$this->writeToLog("DDDD");
