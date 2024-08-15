@@ -14,43 +14,60 @@ class Log{
     * @param string $userid User ID 	*
     * @return $eventid                  *
     **/
-    public function new_log_insert($name, $eventid){
-
-		//Set other variables
-        $value = 0;
-        $table= "log";
+    public function update_log($name, $eventid){
+        //Set other variables
+        $table = "log";
         $uxtime = $this->unixTime();
-
-        //Add mandatory values
+    
+        // Retrieve the current value from the database
+        $currentValue = DB::table($table)
+                          ->where($table . '_name', $name)
+                          ->where($table . '_eventid', $eventid)
+                          ->value($table . '_value');
+    
+        // If no value found, set it to 0
+        if ($currentValue === null) {
+            $currentValue = 0;
+        }
+    
+        // Increment the value by 1
+        $newValue = $currentValue + 1;
+    
+        // Prepare data to insert or update
         $dbInsertArray[$table . '_name'] = $name;
-        $dbInsertArray[$table . '_value'] = $value;
+        $dbInsertArray[$table . '_value'] = $newValue;
         $dbInsertArray[$table . '_eventid'] = $eventid;
         $dbInsertArray[$table . '_uxtime'] = $uxtime;
-
-		//Insert new poll and return intert id
+    
         try {
-    		$logid = DB::table($table)->insertGetId($dbInsertArray);
-
+            // Insert or update the log entry
+            $logid = DB::table($table)
+                        ->updateOrInsert(
+                            [$table . '_name' => $name, $table . '_eventid' => $eventid], 
+                            $dbInsertArray
+                        );
+    
             $response = array(
-				'status' => 'success',
-				'logid' => $logid,
-                'message' => 'New log created'
-			);
-
-			return $response;
+                'status' => 'success',
+                'logid' => $logid,
+                'message' => 'Log updated with incremented value'
+            );
+    
+            return $response;
         }
         //Return error to the client
         catch(Exception $ex) {
-
             $error = $ex->getMessage();
             $this->writeToLog($error);
-
-			$response = array(
-				'status' => 'fail',
-				'message' => $error
-			);
-
-			return $response;
-		}
+    
+            $response = array(
+                'status' => 'fail',
+                'message' => $error
+            );
+    
+            return $response;
+        }
     }
+
+
 }

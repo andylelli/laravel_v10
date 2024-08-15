@@ -81,7 +81,7 @@ class PostInsertController extends Controller
 				$eventid = $response['event_id'];
 
 				$log = new Log();
-				$result = $log->new_log_insert($name, $eventid);
+				$result = $log->update_log($name, $eventid);
 
 				if($result['status'] == 'success') {
 					return response()->json($response, 201);
