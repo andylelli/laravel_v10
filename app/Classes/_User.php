@@ -3,6 +3,7 @@
 namespace App\Classes;
 use App\Classes\Traits\General;
 use App\Classes\QR_Code;
+use App\Classes\Log;
 use DB;
 
 class _User{
@@ -124,6 +125,10 @@ class _User{
                 $response->user_defaulteventid = $user[0]->guest_eventid;
                 $response->eventslist = $event_list;
                 $response->message = 'You are now logged in';
+
+                $log = new Log();
+                $name = "downloads";
+				$result = $log->update_log($name, $user[0]->guest_eventid);
 
                 return $response;
 
