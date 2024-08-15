@@ -71,19 +71,14 @@ class PostInsertController extends Controller
 		$class = new $type();
 		$fxname = 'new_' . $table . '_insert';
 
-		$this->writeToLog("AAAA");
-
 		$response = $class->$fxname($arr);
 
 		if($response['status'] == 'success') {
 
-			$this->writeToLog("BBBB");
-
 			if($table == "event") {
 
-				$this->writeToLog("CCCC");
 				$name = "downloads";
-				$eventid = $response['event_id'];
+				$eventid = $response->event_id;
 
 				$log = new Log();
 				$result = $log->new_log_insert($name, $eventid);
