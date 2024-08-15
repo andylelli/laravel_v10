@@ -101,8 +101,7 @@ class PostUpdateController extends Controller
 			if (in_array($keyToChange, $keys)) {
 				$update[$keyToChange] = $this->encodeXML($update[$keyToChange]);
 			}		
-			
-			$this->writeToLog(print_r($update, true));
+		
 
             try {
 				$tableid = $table . '_id';
