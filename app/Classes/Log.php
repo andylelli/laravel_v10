@@ -31,9 +31,9 @@ class Log{
     		$logid = DB::table($table)->insertGetId($dbInsertArray);
 
             //Add response values
-            $response['status'] = 'success';
-            $response['logid'] = $logid;
-            $response['message'] = 'New event added';
+            $response-> status = 'success';
+            $response->logid = $logid;
+            $response->message = 'New log created';
 
 			return $response;
         }
