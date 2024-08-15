@@ -31,10 +31,11 @@ class Log{
         try {
     		$logid = DB::table($table)->insertGetId($dbInsertArray);
 
-            //Add response values
-            $response->status = 'success';
-            $response->logid = $logid;
-            $response->message = 'New log created';
+            $response = array(
+				'status' => 'success',
+				'logid' => $logid,
+                'message' => 'New log created'
+			);
 
 			return $response;
         }
