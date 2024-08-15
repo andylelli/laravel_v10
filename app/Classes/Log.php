@@ -24,9 +24,9 @@ class Log{
                           ->where($table . '_name', $name)
                           ->where($table . '_eventid', $eventid)
                           ->value($table . '_value');
-    
+        $this->writeToLog(print_r($currentValue, true));
         // If no value found, set it to 0
-        if ($currentValue === null) {
+        if ($currentValue == null) {
             $currentValue = 0;
         }
     
