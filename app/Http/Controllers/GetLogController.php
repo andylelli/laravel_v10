@@ -15,6 +15,7 @@ class GetLogController extends Controller
         //Set variables
 		$name = "ptr";
 
+		$log = new Log();
 		$response = $log->new_log_insert($name, $eventid);
 
         return response()->json($response, 201);
