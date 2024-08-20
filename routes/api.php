@@ -59,6 +59,8 @@ use App\Http\Controllers\GetEmailController;
         Route::get('/get/qrcode/guest/{guestid}',  [GetUpdateController::class, 'getQRCodeGuest']);
         Route::get('/get/qrcode/event/{eventid}',  [GetUpdateController::class, 'getQRCodeEvent']);
 
+        Route::get('/get/update/log/{eventid}',  [GetLogController::class, 'getLog']);
+
         //Post deletes
         Route::post('/post/delete/{table}',  [PostDeleteController::class, 'postDelete']);
 
@@ -111,6 +113,7 @@ use App\Http\Controllers\GetEmailController;
         Route::post('/post/update/lookup',  [PostUpdateController::class, 'postUpdateLookup']);
         Route::post('/post/update/image',  [PostImageController::class, 'postImage']);
         Route::post('/post/update/log',  [PostLogController::class, 'postUpdateLog']);
+        
 
         Route::post('/post/remove/image',  [PostImageController::class, 'postRemoveImage']);
         

@@ -77,13 +77,17 @@ class PostInsertController extends Controller
 
 			if($table == "event") {
 
-				$name = "downloads";
 				$eventid = $response['event_id'];
 
 				$log = new Log();
-				$result = $log->update_log($name, $eventid);
 
-				if($result['status'] == 'success') {
+				$name = "downloads";
+				$result_downloads = $log->update_log($name, $eventid);
+
+				$name = "ptr";
+				$result_ptr = $log->update_log($name, $eventid);
+
+				if($result_ptr['status'] == 'success') {
 					return response()->json($response, 201);
 				}
 				else {
