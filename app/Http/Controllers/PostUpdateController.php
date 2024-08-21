@@ -105,7 +105,7 @@ class PostUpdateController extends Controller
 			// Update Guest table when event changes
 			if($table == "event") {
 				$eventName = $update['event_name'];
-				$this->postGuestEmailUpdate($id, $eventname);
+				$this->postGuestEmailUpdate($id, $eventName);
 			}
 		
 
@@ -142,10 +142,10 @@ class PostUpdateController extends Controller
 		return response()->json($array[0]['response'], $array[0]['httpcode']);
 	}
 
-	private function postGuestEmailUpdate($eventid, $eventname) {
+	private function postGuestEmailUpdate($eventid, $eventName) {
 
 		// Convert event name to lowercase and replace spaces with hyphens
-		$formattedEventName = strtolower(str_replace(' ', '-', $eventname));
+		$formattedEventName = strtolower(str_replace(' ', '-', $eventName));
 	
 		// Update the email with the formatted event name
 		$email = $formattedEventName . '@evaria.io';
