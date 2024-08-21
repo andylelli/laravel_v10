@@ -105,7 +105,7 @@ class PostUpdateController extends Controller
 			// Update Guest table when event changes
 			if($table == "event") {
 				$eventName = $update['event_name'];
-				$this->postGuestEmailUpdate($eventid, $eventname);
+				$this->postGuestEmailUpdate($id, $eventname);
 			}
 		
 
