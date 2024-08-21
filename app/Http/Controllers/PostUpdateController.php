@@ -100,7 +100,13 @@ class PostUpdateController extends Controller
 			$keyToChange = $table . '_expiredmessage';;
 			if (in_array($keyToChange, $keys)) {
 				$update[$keyToChange] = $this->encodeXML($update[$keyToChange]);
-			}		
+			}
+			
+			// Update Guest table when event changes
+			if($table == "event") {
+				$eventName = $update['event_name'];
+				$this->postGuestEmailUpdate($eventid, $eventname);
+			}
 		
 
             try {
@@ -135,6 +141,30 @@ class PostUpdateController extends Controller
 
 		return response()->json($array[0]['response'], $array[0]['httpcode']);
 	}
+
+	private function postGuestEmailUpdate($eventid, $eventname) {
+
+		// Convert event name to lowercase and replace spaces with hyphens
+		$formattedEventName = strtolower(str_replace(' ', '-', $eventname));
+	
+		// Update the email with the formatted event name
+		$email = $formattedEventName . '@evaria.io';
+	
+		$uxtime = $this->unixTime();
+	
+		$update = array(
+			'guest_email' => $formattedEventName,
+			'guest_uxtime' => $uxtime
+		);
+	
+		$result = DB::table('guest')
+			->where('guest_eventid', $eventid)
+			->where('guest_role', 1)
+			->update($update);
+	
+		return $result;
+	}
+	
 
 	public function postUpdateLookup(Request $request)
 	{
