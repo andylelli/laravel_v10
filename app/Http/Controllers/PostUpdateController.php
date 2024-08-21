@@ -153,8 +153,8 @@ class PostUpdateController extends Controller
 		$uxtime = $this->unixTime();
 	
 		$update = array(
-			'guest_firstname' => $eventName,
-			'guest_email' => $formattedEventName,
+			'guest_firstname' => $formattedEventName,
+			'guest_email' => $email,
 			'guest_uxtime' => $uxtime
 		);
 	
