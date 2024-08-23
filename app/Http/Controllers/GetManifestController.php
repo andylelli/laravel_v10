@@ -28,6 +28,13 @@ class GetManifestController extends Controller
             
             $folderPath = "user/icons/" . $convertedString;
 
+            $lookup = DB::table('lookup')
+            ->where('lookup_eventid', '=', $eventid)
+            ->where('lookup_id', '=', 'splashcolour')
+            ->first();
+        
+            $colour = $lookup ? $lookup->lookup_value : '000000';
+
             // Method 1: Using file_exists()
             if (!file_exists($folderPath)) {
                 $convertedString = "evaria";
@@ -84,7 +91,7 @@ class GetManifestController extends Controller
             $screenshotsArray = array($screenshotWide[0], $screenshotNarrow[0]);   
             
             //$startURL = "/user/event/" . $convertedString;
-            $startURL = "/user/index.html?name=" . $eventName . "&id=" . $eventid;
+            $startURL = "/user/index.html?name=" . $eventName . "&id=" . $eventid . "&bg=" . $colour;
 
             // CREATE MAIN RESPONSE
             $response[] = array(
