@@ -179,6 +179,7 @@
             "db": [
                 "directory_id",
                 "directory_parentid",
+                "directory_locationid",
                 "directory_mapid",
                 "directory_imageid",
                 "directory_scheduleid",
@@ -198,6 +199,7 @@
             ],
             "dbInsertInitial": {
                 "directory_parentid": 0,
+                "directory_locationid": 0,
                 "directory_mapid": 0,
                 "directory_scheduleid": 0,
                 "directory_hidenames": 0,
@@ -211,6 +213,7 @@
             "dbUpdate": [
                 "directory_id",
                 "directory_parentid",
+                "directory_locationid",
                 "directory_mapid",
                 "directory_imageid",
                 "directory_scheduleid",
