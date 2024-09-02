@@ -113,7 +113,6 @@ use App\Http\Controllers\GetLogController;
         Route::post('/post/update/qrcode',  [PostUpdateController::class, 'postUpdate']);
         Route::post('/post/update/lookup',  [PostUpdateController::class, 'postUpdateLookup']);
         Route::post('/post/update/image',  [PostImageController::class, 'postImage']);
-        Route::post('/post/update/log',  [PostLogController::class, 'postUpdateLog']);
         
 
         Route::post('/post/remove/image',  [PostImageController::class, 'postRemoveImage']);
