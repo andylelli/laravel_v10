@@ -109,5 +109,5 @@ class GetWebPermissionsController extends Controller
 		// Clean up
 		imagedestroy($image);
 		imagedestroy($croppedImage);
-	
+	}	
 }
