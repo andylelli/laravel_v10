@@ -147,13 +147,29 @@
             content: "←";
             font-size: 16px;
         }
+
+        /* Centering the image */
+        .image-container {
+            width: 100px;  /* Size of the square */
+            height: 100px; /* Size of the square */
+            overflow: hidden; /* Hide parts of the image outside the square */
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .image-container img {
+            width: 100%; /* Make the image fill the container */
+            height: 100%;
+            object-fit: cover; /* Crop and center the image */
+            object-position: center; /* Ensure the central part of the image is shown */
+        }
     </style>
 </head>
 <body>
 
     <div class="background-blur"></div>
 
-    <div class="modal" id="permissionModal">
+    <div class="modal image-container" id="permissionModal">
         <!-- Orange square image (75x75px, centered) -->
                 <!-- Base64 image added here (50x50px) -->
                 <img width="75" height="75" src="{{ $eventimage }}" alt="App Icon">
