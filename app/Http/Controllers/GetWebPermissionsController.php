@@ -86,16 +86,15 @@ class GetWebPermissionsController extends Controller
 		// Copy the central part of the original image to the new image
 		imagecopy($croppedImage, $image, 0, 0, $x, $y, $squareSize, $squareSize);
 	
-		// Detect the image type and set the correct content-type header
+		// Detect the image type and start outputting the image to a variable
+		ob_start(); // Start output buffering
 		$imageInfo = getimagesizefromstring($imageData);
 	
 		if ($imageInfo === false) {
 			die('Error: Unable to detect image type');
 		}
 	
-		// Output the cropped image based on the detected mime type
-		header("Content-Type: " . $imageInfo['mime']);  // Dynamically set the content type
-	
+		// Dynamically output the image to the buffer based on the mime type
 		if ($imageInfo['mime'] == 'image/png') {
 			imagepng($croppedImage); // Output as PNG
 		} elseif ($imageInfo['mime'] == 'image/jpeg' || $imageInfo['mime'] == 'image/jpg') {
@@ -106,8 +105,19 @@ class GetWebPermissionsController extends Controller
 			die('Unsupported image type');
 		}
 	
+		// Capture the output and encode it to Base64
+		$croppedImageData = ob_get_contents();
+		ob_end_clean(); // End output buffering
+	
+		// Encode the image data as base64
+		$base64CroppedImage = base64_encode($croppedImageData);
+	
 		// Clean up
 		imagedestroy($image);
 		imagedestroy($croppedImage);
-	}	
+	
+		// Return the base64 encoded image
+		return 'data:' . $imageInfo['mime'] . ';base64,' . $base64CroppedImage;
+	}
+	
 }
