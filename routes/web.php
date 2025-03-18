@@ -12,4 +12,4 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |  return view('welcome');
 */
-Route::get('/app/{eventname}//{eventid}/{bgcolor}',  [GetWebPermissionsController::class, 'getWebPermissionsPage']);
+Route::get('/app/{eventname}/{eventid}/{bgcolor}',  [GetWebPermissionsController::class, 'getWebPermissionsPage']);
