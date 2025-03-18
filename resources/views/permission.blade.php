@@ -155,10 +155,11 @@
 
     <div class="modal" id="permissionModal">
         <!-- Orange square image (75x75px, centered) -->
-        <div style="width: 75px; height: 75px; background-color: orange; border-radius: 8px; margin-bottom: 15px; margin-left: auto; margin-right: auto;"></div>
+                <!-- Base64 image added here (50x50px) -->
+                <img width="75" height="75" src="{{ $event_image }}" alt="App Icon">
 
         <h2>{{ $eventname }} Needs Your Permission</h2>
-        <p>###app-name### is a **Progressive Web App (PWA)**—a web-based app that works like a regular app but installs directly from your browser. It saves data on your device so you can use the app offline and load it faster.</p>
+        <p>{{ $eventname }} is a **Progressive Web App (PWA)**—a web-based app that works like a regular app but installs directly from your browser. It saves data on your device so you can use the app offline and load it faster.</p>
         
         <p><strong>What is stored on your device?</strong></p>
         <ul>
@@ -176,7 +177,7 @@
         <p>For the best experience, once installed, add the app to your home screen. You can uninstall it anytime from the app’s settings or by clearing your browser data.</p>
         
         <div class="button-container">
-            <a href="https://www.evaria.io/user/index.html?name=event-2025&id=293&bg=000000" class="install-btn" id="installBtn">Install</a>
+            <a href="{{ $url }}" class="install-btn" id="installBtn">Install</a>
             <button class="back-btn" onclick="goBack()">Back</button>
         </div>
     </div>
