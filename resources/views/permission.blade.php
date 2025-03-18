@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ $eventimage }}">
-    <title>{{ $eventname }} - Permission Request</title>
+    <title>{{ $eventname }} - Permission To Install</title>
     <style>
         * {
             margin: 0;
