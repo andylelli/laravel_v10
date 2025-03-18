@@ -28,11 +28,13 @@ class GetWebPermissionsController extends Controller
                 throw new Exception($error); // This triggers the catch block
             }
 
+			$croppedImage = $this->cropToSquare($event[0]->event_image);
+
 
 			$url ="https://www.evaria.io/user/index.html?name=" . $eventname . "&id=" . $eventid . "&bg=" . $bgcolor;
 
 			//$this->writeToLog(print_r($event, true));
-        	return view('permission', ['url' => $url, 'eventname' => $event[0]->event_name, 'eventimage' => $event[0]->event_image, 'bgcolor' => $bgcolor]);
+        	return view('permission', ['url' => $url, 'eventname' => $event[0]->event_name, 'eventimage' => $croppedImage, 'bgcolor' => $bgcolor]);
 		}
 
 		catch(Exception $ex) {
@@ -47,4 +49,40 @@ class GetWebPermissionsController extends Controller
 			return $response;
 		}
     }
+
+	private function cropToSquare($base64Image) {
+		// Decode the Base64 string to get the image
+		$imageData = base64_decode($base64Image);
+		
+		// Create an image resource from the decoded data
+		$image = imagecreatefromstring($imageData);
+		if (!$image) {
+			die('Invalid image data');
+		}
+	
+		// Get the dimensions of the original image
+		$width = imagesx($image);
+		$height = imagesy($image);
+	
+		// Determine the size of the square (smallest dimension)
+		$squareSize = min($width, $height);
+	
+		// Calculate the coordinates for the center cropping
+		$x = ($width - $squareSize) / 2;  // Horizontal center
+		$y = ($height - $squareSize) / 2; // Vertical center
+	
+		// Create a new image resource for the cropped square
+		$croppedImage = imagecreatetruecolor($squareSize, $squareSize);
+	
+		// Copy the central part of the original image to the new image
+		imagecopy($croppedImage, $image, 0, 0, $x, $y, $squareSize, $squareSize);
+	
+		// Output the cropped image to the browser or save it
+		header('Content-Type: image/png');  // You can change this based on the output type
+		imagepng($croppedImage); // Output to the browser as PNG (you can use imagejpeg, imagegif, etc.)
+	
+		// Clean up
+		imagedestroy($image);
+		imagedestroy($croppedImage);
+	}
 }
