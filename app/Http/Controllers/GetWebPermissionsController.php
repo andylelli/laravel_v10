@@ -51,7 +51,16 @@ class GetWebPermissionsController extends Controller
     }
 
 	private function cropToSquare($base64Image) {
-		// Decode the Base64 string to get the image
+		// Remove the 'data:image/*;base64,' prefix if it exists
+		$prefix = 'data:image/';
+		if (strpos($base64Image, $prefix) === 0) {
+			$commaPosition = strpos($base64Image, ',');
+			if ($commaPosition !== false) {
+				$base64Image = substr($base64Image, $commaPosition + 1);
+			}
+		}
+	
+		// Decode the Base64 string to get the image data
 		$imageData = base64_decode($base64Image);
 		
 		// Create an image resource from the decoded data
@@ -77,12 +86,28 @@ class GetWebPermissionsController extends Controller
 		// Copy the central part of the original image to the new image
 		imagecopy($croppedImage, $image, 0, 0, $x, $y, $squareSize, $squareSize);
 	
-		// Output the cropped image to the browser or save it
-		header('Content-Type: image/png');  // You can change this based on the output type
-		imagepng($croppedImage); // Output to the browser as PNG (you can use imagejpeg, imagegif, etc.)
+		// Detect the image type and set the correct content-type header
+		$imageInfo = getimagesizefromstring($imageData);
+	
+		if ($imageInfo === false) {
+			die('Error: Unable to detect image type');
+		}
+	
+		// Output the cropped image based on the detected mime type
+		header("Content-Type: " . $imageInfo['mime']);  // Dynamically set the content type
+	
+		if ($imageInfo['mime'] == 'image/png') {
+			imagepng($croppedImage); // Output as PNG
+		} elseif ($imageInfo['mime'] == 'image/jpeg' || $imageInfo['mime'] == 'image/jpg') {
+			imagejpeg($croppedImage); // Output as JPEG or JPG
+		} elseif ($imageInfo['mime'] == 'image/gif') {
+			imagegif($croppedImage); // Output as GIF
+		} else {
+			die('Unsupported image type');
+		}
 	
 		// Clean up
 		imagedestroy($image);
 		imagedestroy($croppedImage);
-	}
+	
 }
