@@ -32,7 +32,7 @@ class GetWebPermissionsController extends Controller
 			$url ="https://www.evaria.io/user/index.html?name=" . $eventname . "&id=" . $eventid . "&bg=" . $bgcolor;
 
 			//$this->writeToLog(print_r($event, true));
-        	return view('permissions', ['url' => $url, 'eventname' => $event[0]->event_name, 'eventimage' => $event[0]->event_image, 'bgcolor' => $bgcolor]);
+        	return view('permission', ['url' => $url, 'eventname' => $event[0]->event_name, 'eventimage' => $event[0]->event_image, 'bgcolor' => $bgcolor]);
 		}
 
 		catch(Exception $ex) {
