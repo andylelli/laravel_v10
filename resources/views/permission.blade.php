@@ -148,7 +148,7 @@
             content: "←";
             font-size: 16px;
         }
-        
+
     </style>
 </head>
 <body>
@@ -161,7 +161,7 @@
         <img width="75" height="75" src="{{ $eventimage }}" alt="App Icon"/>
 
         <h2>{{ $eventname }} Needs Your Permission</h2>
-        <p>{{ $eventname }} is a **Progressive Web App (PWA)**—a web-based app that works like a regular app but installs directly from your browser. It saves data on your device so you can use the app offline and load it faster.</p>
+        <p>{{ $eventname }} is a <b>Progressive Web App (PWA)</b> — a web-based app that works like a regular app but installs directly from your browser. It saves data on your device so you can use the app offline and load it faster.</p>
         
         <p><strong>What is stored on your device?</strong></p>
         <ul>
