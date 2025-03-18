@@ -35,11 +35,6 @@ use App\Http\Controllers\GetLogController;
     //Route::middleware(['throttle:100,1'])->group(function(){
     //})
 
-        //Web
-        Route::get('/web/', function () {
-            return view('welcome');
-        });
-
         //Login
         Route::post('/post/login',  [PostLoginController::class, 'postLogin']);
         //Register
