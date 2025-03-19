@@ -64,12 +64,12 @@
         .modal img {
             width: 75px !important;
             height: 75px !important;
-            max-width: 75px;
-            max-height: 75px;
+            max-width: 75px !important;
+            max-height: 75px !important;
             object-fit: contain; /* Ensures the image is not distorted */
             display: block;
             margin: 0 auto 15px auto;
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px !important; /* Rounded corners */
         }
 
 
