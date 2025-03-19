@@ -37,28 +37,33 @@
         }
 
         /* Modal styling */
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(to bottom, #222, #1a1a1a);
-            padding: 25px;
-            width: 90%;
-            max-width: 420px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-            text-align: center;
-            color: #f0f0f0;
-            border: 1px solid #444;
-        }
+		.modal {
+			position: fixed;
+			top: 5%;
+			left: 50%;
+			transform: translateX(-50%);
+			background: linear-gradient(to bottom, #222, #1a1a1a);
+			padding-top: 25px;
+			padding-left: 25px;
+			padding-right: 25px;
+			padding-bottom: 150px;
+			width: 90%;
+			max-width: 420px;
+			max-height: 90vh; /* Prevents the modal from being taller than the screen */
+			overflow-y: auto; /* Enables scrolling if the content is too long */
+			border-radius: 12px;
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+			z-index: 1000;
+			text-align: center;
+			color: #f0f0f0;
+			border: 1px solid #444;
+		}
+}
 
         /* Image styling (75px x 75px square with orange background, centered) */
         .modal img {
             width: 75px;
             height: 75px;
-            background-color: orange;
             border-radius: 8px; /* Rounded corners */
             margin-bottom: 15px; /* Space between image and content */
             display: block;
