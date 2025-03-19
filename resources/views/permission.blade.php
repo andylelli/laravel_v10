@@ -46,7 +46,7 @@
 			padding-top: 25px;
 			padding-left: 25px;
 			padding-right: 25px;
-			padding-bottom: 150px;
+			padding-bottom: 80px;
 			width: 90%;
 			max-width: 420px;
 			max-height: 90vh; /* Prevents the modal from being taller than the screen */
