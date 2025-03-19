@@ -62,15 +62,16 @@
 
         /* Image styling (75px x 75px square with orange background, centered) */
         .modal img {
-            width: 75px;
-            height: 75px;
-            object-fit: cover; /* Ensures the image fills the box without distortion */
-            border-radius: 8px; /* Rounded corners */
-            margin-bottom: 15px;
+            width: 75px !important;
+            height: 75px !important;
+            max-width: 75px;
+            max-height: 75px;
+            object-fit: contain; /* Ensures the image is not distorted */
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 15px auto;
+            border-radius: 8px; /* Rounded corners */
         }
+
 
         .modal h2 {
             margin-bottom: 15px;
