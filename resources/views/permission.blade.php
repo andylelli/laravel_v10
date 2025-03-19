@@ -64,8 +64,9 @@
         .modal img {
             width: 75px;
             height: 75px;
+            object-fit: cover; /* Ensures the image fills the box without distortion */
             border-radius: 8px; /* Rounded corners */
-            margin-bottom: 15px; /* Space between image and content */
+            margin-bottom: 15px;
             display: block;
             margin-left: auto;
             margin-right: auto;
