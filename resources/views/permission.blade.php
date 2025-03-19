@@ -165,7 +165,7 @@
     <div class="modal" id="permissionModal">
         <!-- Orange square image (75x75px, centered) -->
         <!-- Base64 image added here (50x50px) -->
-        <img style="max-width: 75px; max-height: 75px; border-radius: 8px;" src="{{ $eventimage }}" alt="App Icon"/>
+        <img style="max-width: 75px; max-height: 75px; border-radius: 12px;" src="{{ $eventimage }}" alt="App Icon"/>
 
         <h2>{{ $eventname }} Needs Your Permission</h2>
         <p><b>{{ $eventname }}</b> is a <b>Progressive Web App (PWA)</b> — a web-based app that works like a regular app but installs directly from your browser. It saves data on your device so you can use the app offline and load it faster.</p>
